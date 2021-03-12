@@ -1,0 +1,111 @@
+body{font-family: sans-serif;}
+
+.grid-container{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    flex-direction: row;
+    list-style: none;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 250px;
+    grid-template-rows: 180px 1fr 3fr 1fr 3fr 1fr 3fr;
+    grid-template-areas:
+    "header  photo"
+    "experience_title data"
+    "experience data"
+    "education_title data"
+    "education data"
+    "skills_title data"
+    "skills data";
+}
+
+.item{
+    border: 2px solid rgb(143, 74, 10);
+}
+
+.experience{
+    grid-area: experience;
+    background:rgb(223, 214, 88);
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    color: rgb(143, 74, 10);
+}
+
+.experience_title{
+    grid-area: experience_title;
+    background:rgb(172, 112, 33);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 23px;
+    font-weight: 700;
+    color: white;
+}
+
+.header{
+    grid-area: header;
+    background: rgb(117, 192, 67);
+    font-weight: 700;
+    font-size: 50px;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.education_title{
+    grid-area: education_title;
+    background:rgb(172, 112, 33);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 23px;
+    font-weight: 700;
+    color: white;
+}
+
+.education{
+    grid-area: education;
+    background: rgb(223, 214, 88);
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    color: rgb(143, 74, 10);
+    
+}
+
+.data{
+    grid-area: data;
+    background:rgb(117, 192, 67);
+    font-size: 19px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.photo{
+    grid-area: photo;
+    width: fit-content;
+}
+
+.skills_title{
+    grid-area: skills_title;
+    background:rgb(172, 112, 33);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 23px;
+    font-weight: 700;
+    color: white;
+}
+
+.skills{
+    grid-area: skills;
+    background:rgb(223, 214, 88);
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+    color: rgb(143, 74, 10);
+}
+
