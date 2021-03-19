@@ -1,0 +1,311 @@
+
+body {
+  display: block;
+  width: 100%;
+  font-family: arial, sans-serif;
+}
+
+.toolbar {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  padding: 15px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.toolbar a {
+  text-decoration: none;
+}
+
+.toolbar a:hover {
+  text-decoration: underline;
+}
+
+.toolbar a:visited {
+  color: black;
+}
+
+.toolbar img {
+  padding-right: 15px;
+  position: relative;
+  top: 6px;
+  opacity: .55;
+}
+
+.toolbar img:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.toolbar button:hover {
+  cursor: pointer;
+}
+
+.leftbar {
+  margin-top: 7px;
+  display: flex;
+  float: left;
+  align-vertically: middle;
+  padding-left: 10px;
+}
+
+.leftbar a {
+  padding-left: 15px;
+  opacity: .75;
+}
+
+.rightbar {
+  display: flex;
+  text-align: right;
+  padding-right: 25px;
+}
+
+.rightbar a {
+  padding-right: 20px;
+  font-size: 13px;
+}
+
+#logowanie {
+  color: #ffffff;
+  background-color: #1a73e8;
+  padding: 9px 23px;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: .25px;
+  line-height: 16px;
+  margin-right: 1px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#grafika{
+  color: rgba(0,0,0,0.87);
+  display: inline-block;
+  line-height: 24px;
+  vertical-align: middle;
+  padding-right: 25px;
+}
+
+#gmail{
+  color: rgba(0,0,0,0.87);
+  display: inline-block;
+  line-height: 24px;
+  vertical-align: middle;
+  padding-right: 10px;
+}
+
+#logowanie:hover {
+  text-decoration: none;
+}
+
+.main {
+  position: relative;
+  top: 100px;
+  height:10fr;
+  text-align: center;
+  width: 100%;
+}
+
+.logo {
+  padding-top: 158px;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.searcharea {
+  width: 584px;
+  height: 44px;
+  border: 1px solid #dfe1e5;
+  box-shadow: none;
+  border-radius: 24px;
+  margin: 0 auto;
+  margin-top: 27px;
+  z-index:3;
+
+}
+
+.searchbox {
+  padding: 2px 4px;
+  height: 40px;
+  width: 576px;
+}
+
+.searcharea:hover {
+  box-shadow: 0 0 8px rgb(223,225,229);
+}
+
+.searcharea:active {
+  box-shadow: 0 0 8px rgb(223,225,229);
+}
+
+.searchinput {
+  width: 450px;
+  height: 10px;
+  padding-top: 0 1px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  display: inline-block;
+  position: relative;
+  bottom: 15px;
+  left: 8px;
+  color: rgba(0,0,0,.87);
+}
+
+.searchinput:focus {
+  outline: none;
+}
+
+.micro {
+  height: 44px;
+  width: 40px;
+  display: inline-block;
+  float: right;
+}
+
+
+.mic {
+  height: 24px;
+  width: 24px;
+  padding: 8px 8px;
+  display: inline-block;
+}
+
+.lupa {
+  height: 44px;
+  width: 40px;
+  display:inline;
+  float: left;
+}
+
+
+.lupka {
+  height: 24px;
+  width: 24px;
+  padding: 8px 8px;
+  display: inline-block;
+}
+
+.klawiatura {
+  height: 44px;
+  width: 40px;
+  display:inline;
+  float: right;
+}
+
+
+.keyboard {
+  height: 12px;
+  width: 20px;
+  padding: 14px 8px;
+  display: inline-block;
+}
+
+.mic:hover {
+  cursor: pointer;
+}
+
+.lupa:hover {
+  cursor: pointer;
+}
+
+.klawiatura:hover {
+  cursor: pointer;
+}
+
+.search {
+  height: 36px;
+  line-height: 27px;
+  background-color: #f8f9fa;
+  border: 1px solid #f8f9fa;
+  color: #3c4043;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  margin: 11px 4px;
+  padding: 0 16px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.search:hover {
+  cursor: pointer;
+  border: 1px solid #c6c6c6;
+  color: rgb(133, 133, 133);
+}
+
+.buttons {
+  padding-top: 18px;
+  display: block;
+  text-align: -webkit-center;
+}
+
+.infobar {
+  background-color: rgb(242,242,242);
+  position: absolute;
+  bottom: 1px;
+  width: 100%;
+  display: inline-block;
+  justify-content: space-between;
+  font-family: arial, sans-serif;
+  font-size: 13px;
+  border-top: 1px solid rgb(228,228,228);
+  height: 1fr;
+}
+
+.infobar a {
+  text-decoration: none;
+  color: rgb(95,99,104);
+  line-height: 40px;
+}
+
+.infobar a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.infobar a:visited {
+  color: rgb(95,99,104);
+}
+
+.locationinfo {
+  height: 41px;
+  border-bottom: 1px solid rgb(228,228,228);
+  width: 100%;
+  padding-left: 6px;
+}
+
+.location {
+  padding-left: 26px;
+  line-height: 40px;
+  font-size: 15px;
+  color: rgba(0,0,0,.54);
+  text-align: left;
+}
+
+.infoleft {
+  float: left;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.infoleft a {
+  padding-left: 33px;
+}
+
+.inforight {
+  float: right;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.inforight a {
+  padding-right: 33px;
+}
