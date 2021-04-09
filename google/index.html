@@ -6,10 +6,13 @@
     <title>Google wyszukiwarka</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="styleresults.css" />
+    <script src="vue.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 
-<body class="results"> <!--class="home" dla widoku strony głównej / class="results" dla widoku wynikow-->
+<body class="home" > <!--class="home" dla widoku strony głównej / class="results" dla widoku wynikow-->
 
+  <div class="hide">
     <div class="up">
         <div class="toolbar">
           <div class="leftbar">
@@ -36,6 +39,7 @@
             <div class="lupa">
               <img src="lupa.webp" class="lupka" alt="Lupa Google" href="#">
             </div>
+            <input class="wejscie" v-model="googleSearch" type="search" maxlength="2048" title="Szukaj">
             <div class="micro">
               <img src="mikrofon.png" class="mic" alt="Mikrofon Google" href="#">
             </div>
@@ -68,9 +72,10 @@
           <a href="#">Ustawienia</a>
         </div>
     </div>
+  </div>
 
 
-    <div id="header">
+    <div class="header">
         <div id="topbar">
             <img id="googleimage" src="logo.png" />
             <div id="searchbar" type="text">
@@ -246,6 +251,7 @@
     <a href="#">Prywatność</a>
     <a href="#">Warunki</a>
   </div>
+</div>
 </body>
 
 </html>

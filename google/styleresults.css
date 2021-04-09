@@ -5,8 +5,8 @@
 }
 
 .results #topbar {
-    display: flex;
     height: 64px;
+    display: flex;
     width: 100%;
     align-items: flex-end;
     position: fixed;
@@ -76,7 +76,7 @@
     position: relative;
     bottom: 5px;
     overflow: hidden;
-    display: flex;
+    display:flex;
     z-index: 100;
     margin-left: 21px;
 }
@@ -280,6 +280,7 @@
 }
 
 .results .searchresults {
+    display: inline-block;
     margin-left: 175px;
     font-family: 'Arial';
 }
@@ -406,6 +407,7 @@
     font-size: 13px;
     margin-top: 0px;
     color: rgb(82, 82, 82);
+    display: inline-block;
 }
 
 .results .help h3 {
@@ -414,6 +416,7 @@
     margin-top: 40px;
     margin-bottom: 10px;
     margin-left: 8px;
+    display: inline-block;
 }
 
 .results .helplists ul {
@@ -440,6 +443,7 @@
 }
 
 .results .google {
+    display: inline-block;
     margin-left: 150px;
     margin-top: 15px;
     margin-bottom: 1px;
@@ -468,6 +472,7 @@
 }
       
 .results table {
+    display: inline-block;
     margin: 120 auto;
     text-align: center;
     letter-spacing: -0.12em;
@@ -479,6 +484,7 @@
     }
 
 .results .googlelist{
+    display: inline-block;
     font-size: 14px;
 }
 
@@ -560,6 +566,7 @@
 {
     display:none;
 }
+
 
 
 

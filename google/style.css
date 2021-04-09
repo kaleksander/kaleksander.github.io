@@ -1,5 +1,4 @@
-
-.home body {
+.home{
   display: block;
   width: 100%;
   font-family: arial, sans-serif;
@@ -47,7 +46,6 @@
   margin-top: 7px;
   display: flex;
   float: left;
-  align-vertically: middle;
   padding-left: 10px;
 }
 
@@ -65,6 +63,7 @@
 .home .rightbar a {
   padding-right: 20px;
   font-size: 13px;
+  font-family: arial, sans-serif;
 }
 
 .home #logowanie {
@@ -145,11 +144,11 @@
   box-shadow: 0 0 8px rgb(223,225,229);
 }
 
-.home .searchinput {
+.home .wejscie{
   width: 450px;
-  height: 10px;
-  padding-top: 0 1px;
-  border: none;
+  height: 39px;
+  margin-top: 14px;
+  border: 1px green;
   outline: none;
   font-size: 16px;
   display: inline-block;
@@ -158,6 +157,7 @@
   left: 8px;
   color: rgba(0,0,0,.87);
 }
+
 
 .home .searchinput:focus {
   outline: none;
@@ -310,11 +310,6 @@
   padding-right: 33px;
 }
 
-.home #header
-{
-    display:none;
-}
-
 .home #boxesicon
 {
     display:none;
@@ -332,14 +327,10 @@
   display:none;
 }
 
-.home .infolewo{
+.home #topbar{
   display:none;
 }
 
-.home .google{
-  display:none;
-}
 
-.home .help{
-  display:none;
-}
+
+
