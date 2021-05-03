@@ -1,0 +1,410 @@
+.results .pasek-flex-results,
+.results .additional,
+.results .ikona_input-clear,
+.results .gorny_pasek,
+.results .nawigacja,
+.results .liczba_wynikow,
+.results .lokacja,
+.results .lista,
+.results  img.googleLogo,
+.results #google_link{
+    display:initial;
+}
+body .results{
+    font-size: 14px;
+    min-width: 400px;
+    margin:0;
+    min-height: 100vh;
+    background-color:#fff;
+    font-family: arial, sans-serif;
+    display: grid;
+    align-content: space-between;
+    grid-template-areas:
+    "top"
+    "main"
+    "footer";
+    color: #202124;
+    font-size: 14px;
+    grid-template-rows: auto 1fr auto;
+}
+.results  img.googleLogo{
+    margin-top: 0px;
+    display: initial;
+    height: 28px;
+    width: 86px;
+    cursor: pointer;
+}
+.results #google_link{
+    position: absolute;
+    left: 0px;
+    padding: 4px 28px 0 30px;
+    top: -100px;
+    height: 28px;
+    width: 86px;
+    cursor: pointer;
+}
+.results .h-flex_container{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 6px;
+}
+.results .aplikacja{
+    align-items: center;
+}
+.results img.ikona_input-clear{
+    width: 14px;
+    height: 14px;
+    margin-right: 14px;
+    padding-left:10px;
+    align-self:center;
+}
+.results span.kreska{
+    border-right: 1px solid #dfe1e5;
+    display: inline-block;
+    height: 34px;
+}
+.results .modul{
+    padding: 0px;
+    width:100%;
+    height:44px;
+    display: flex;
+    line-height:normal;
+}
+.results .input_wyszukiwanie{
+    align-self:center;
+    margin-left: 13px;
+    margin-top: 10px;
+}
+.results .input_wyszukiwanie:focus{
+    margin-left: 20px;
+    height:14px;
+    font-size: 17px;
+}
+.results .krzyzyk{
+    display:flex;
+    align-self:center;
+    cursor:pointer;
+    margin:0px;
+}
+.results .ikona_input-keyboard{
+    align-self:center;
+    padding-right: 10px;
+    padding-left: 15px;
+    margin-top: 5px;
+}
+.results .ikona_input-mikrofon{
+    align-self:center;
+    padding-right: 6px;
+    padding-left: 6px;
+    margin-top: 3px;
+}
+.results .ikona_input{
+    align-self:center;
+    margin-top: 3px;
+}
+.miasta_lista{
+    display: none;
+    line-height: 0.8rem;
+    border-top: 1px solid #dfe1e5;
+    background-color: #fff;
+    z-index:10;
+    margin-bottom:2px;
+    border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 25%;
+}
+.miasta_lista li{
+    padding:2px 0px;
+    cursor: pointer;
+}
+.results #przycisk_szukaj{
+    display: flex;
+    padding-right: 20px;
+    height: 44px;
+    width: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+}
+.lista_elementow{
+    padding: 3px 0px;
+    cursor: pointer;
+}
+.results .nawigacja{
+    margin-left: 169px;
+}
+.results .gorny_pasek{
+    position: sticky;
+    top:0;
+    margin-bottom:22px;
+    margin-top:10px;
+    margin-left: 133px;
+    width: 692px;
+    height:44px;
+    margin-right: 40px;
+    padding-top:0px;
+    padding-bottom:0px;
+}
+.results .odnosnik{
+    display: initial;
+    text-decoration: none;
+    color: #70757a;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: arial,sans-serif;
+    white-space: nowrap;
+    height: 16px;
+    line-height: 16px;
+    margin: 11px 1px 0;
+    padding: 16px 12px 12px 10px;
+}
+.results .odnosnik.wszystko{
+        border-bottom: 3px solid #1a73e8;
+        color: #1a73e8;
+  
+}
+.results header{
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom:15px;
+    min-width: 1261px;
+    z-index: 1;
+}
+.results .liczba_wynikow{
+    font-size: 14px;
+    color: #70757a;
+    line-height: 25px;
+    white-space: nowrap;
+    font-family: Google Sans,arial,sans-serif;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 8px;
+    min-width: 652px;
+    margin-left: 180px;
+    align-self: flex-start;
+}
+.results .lista{
+    clear: both;
+    position: relative;
+    margin-right: 264px;
+    margin-left: 180px;
+    width: 652px;
+}
+.results .hiperlacze{
+    text-align: left;
+    text-decoration:none;
+    line-height: 1.5;
+    font-weight: normal;
+    font-style: normal;
+}
+.results .sciezka{
+    display: inline-block;
+    padding-top: 1px;
+    line-height: 1.3;
+    font-size: 14px;
+}
+.results .ciemny{
+    color: #202124;
+
+}
+.results .strona{
+    font-weight: normal;
+    color: #1a0dab;
+    display: inline-block;
+    margin-bottom: 3px;
+    font-size: 20px;
+    line-height: 1.3;
+}
+.results .strona:hover{
+    text-decoration: underline;
+}
+.results .opis{
+    max-width: 48em;
+    color: #4d5156;
+    line-height: 1.58;
+    word-wrap: break-word;
+}
+.results .opis em{
+    font-weight: bold;
+    font-style: normal;
+    color: #5f6368;
+}
+.results .wynik{
+    margin-bottom: 28px;
+}
+
+.results .srodek_container{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.results .tablica_google a{
+    text-decoration: none;
+}
+.results .tablica_google{
+    font-family:Google Sans,arial,sans-serif;
+    border-collapse:collapse;
+    text-align:center;
+    margin:30px auto 30px;
+    align-self: center;
+}
+.results .litera.strzalka{
+    font-size: 15px;
+    vertical-align:sub;
+}
+.results .cyfra{
+    color: #4285f4;
+    font-size: 14px;
+}
+.results .obecna{
+    color: rgba(0,0,0,.87);
+    pointer-events: none;
+}
+.results .litera{
+    font-weight:bolder;
+    width: auto;
+    font-size:35px;
+    margin-bottom: 10px;
+}
+.tablica_google .niebieski{
+    display:inline-block;
+    color:#4285F4;
+}
+.tablica_google .zielony{
+    display:inline-block;
+    color:#34A853;
+}
+.tablica_google .zolty{
+    display:inline-block;
+    color:#FBBC05;
+}
+.tablica_google .czerwony{
+    display:inline-block;
+    color:#EA4335;
+}
+.results .podobne_container{
+    display:flex;
+    justify-self: stretch;
+    padding: 12px 0 0 0;
+}
+.results .podobne_container a{
+    font-size: 16px;
+    
+    text-decoration: none;
+    color: #202124;
+    background-color: #f1f3f4;
+    align-items: center;
+    border-radius: 100px;
+    box-sizing: border-box;
+    display: flex;
+    margin: 4px 8px;
+    max-height: none;
+    min-height: 48px;
+    padding: 0 17px;
+    position: relative;
+}
+.results .podobne_container a span{
+    max-width: 227px;
+    margin: 0 0 0 16px;
+    overflow-wrap: break-word;
+}
+.results .podobne_container a span:hover{
+    text-decoration: underline;
+}
+.results .lupa{
+    padding: 10px;
+    align-self: center;
+}
+.results .wyszukiwanie,
+.results .podobne{
+    margin-left: 180px;
+    max-width: 48em;
+}
+.results .podobne h3{
+    font-weight: normal;
+    font-family: Google Sans,arial,sans-serif;
+    color: #202124;
+    font-size: 20px;
+    line-height: 1.3;
+    margin-bottom: 8px;
+}
+.results footer{
+    position: relative;
+    width:100%;
+    min-width: 1261px;
+    margin: 0px;
+}
+.results div.bottom{
+    border-bottom: 1px solid #dadce0;
+    border-top: 1px solid #dadce0;
+}
+.results .kropka{
+    background: #70757a;
+    border-radius: 100%;
+    display: inline-block;
+    height: 10px;
+    margin: 6px 4px 9px 0;
+    vertical-align: middle;
+    width: 10px;
+}
+.results .lokacja{
+    margin-left: 13px;
+    padding-left: 16px;
+    border-left: 1px solid #dadce0;
+    line-height: 15px;
+    color: #70757a;
+    font-size: 14px;
+}
+.results .dolny_pasek{
+    white-space: nowrap;
+    padding:0px;
+    line-height: 40px;
+}
+.results .lokacja a{
+    text-decoration: none;
+    color: #70757a;
+}
+.results .lokacja b{
+    color: #3c4043;
+}
+.results .panstwo{
+    margin-left: 195px;
+}
+.results .druga{
+    padding:0;
+    line-height: 40px;
+    margin-left: 153px;
+    padding-left:0px;
+    white-space: nowrap;
+    font-size: 14px;
+    justify-content: flex-start;
+}
+.results .link{
+    padding-left: 27px;
+}
+.results .glowne{
+    display: none;
+}
+.results .pierwsza{
+    display: none;
+}
+.results .leafy{
+    display: none;
+}
+.results .menu{
+    display: none;
+}
+.results .przyciski{
+    display: none;
+}
+.results header .linki{
+    display:none;
+}
+.results #listaMiast{
+    display: none;
+}
+.results .widok {
+    display: block;
+}

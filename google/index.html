@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <title>Strona Google</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style_results.css">
+    <link rel="shortcut icon" href="Obrazki/logo_tytulowa.svg" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="./cities.js"></script>
+
+</head>
+
+<!--Przy każdym pierwszym otworzeniu strony głownej działają przyciski góra, dół oraz zaznaczanie wybranego miasta za ich pomocą, jednak aby wybrać zaznaczone 
+    miasto z listy i przejść do wyników wyszukiwania trzeba kliknąć na wybrane miasto lewym przyciskiem myszy. Na stronie wyników wyszukiwania działają wszystkie 
+    przyciski łącznie z przyciskiem ENTER. Po pierwszym powrocie do strony głównej (usunięciu input'a na stronie wyszukiwań), przycisk ENTER zaczyna działać również
+    na niej (można przejść do strony wyszukiwań za pomocą ENTER'a). -->
+
+<body class="home">
+    <div id="start" :class="{results : aktywne()}">
+
+        <header>
+
+            <div class="h-flex_container">
+
+                <section class="h-flex_element linki">
+                    <a class="aplikacje">Gmail</a>
+                    <a class="aplikacje">Grafika</a>
+                </section>
+                <div class=" gorny_pasek">
+                <section class="m-flex_element pasek-flex">
+                    <div class="modul">
+                        <input class="input_wyszukiwanie" ref="top" v-model="googleSearch" maxlength="2048" @focus="skupienie = true" @keyup.down="dol()" @keyup.up="gora()" @keyup.enter="enter()"/>                       
+                            <div class="krzyzyk">
+                            <img title="Wyczyść" class="ikona_input-clear" src="Obrazki/iks.svg"/>
+                            <span class="kreska"></span>
+                            </div>
+                        <img class="ikona_input-keyboard" src="Obrazki/klawiatura.svg"/>
+                        <img class="ikona_input-mikrofon" src="Obrazki/mikrofon.png"/>
+                        <button id="przycisk_szukaj"><img class="ikona_input" src="Obrazki/lupa_2.svg"/></button>
+                    </div>
+                    <div  id="wypisz_miasta" class="miasta_lista" :class="{widok : googleSearch.length > 0 /*&& skupienie*/ && filtrowaneMiasta.length>0}" >
+                        <ul >
+                            <li  v-for="(miasto,index) in filtrowaneMiasta" >
+                                <div class="lista_elementow" :class="{klasa_skupienie:index == zaznaczenie}">
+                                    <img class="ikona_input" src="Obrazki/lupa.svg" />
+                                    <a href="#" v-html="wytluszcz(miasto)" v-on:click="wybrane(index)"><b>{{ miasto }}</b></a>  
+                                </div>
+                            </li>
+                        </ul>
+                    </div> 
+                </section>
+            </div>
+
+                <section class="h-flex_element aplikacja">
+                    <a class="aplikacja"><img class="aplikacja" src="Obrazki/aplikacje.svg" /></a>
+                    <a class="pczycisk_login">Zaloguj się</a>
+                </section>
+            </div>
+
+            <div class="nawigacja">
+                <section class="odnosnik wszystko">Wszystko</section>
+                <section class="odnosnik">Grafika</section>
+                <section class="odnosnik">Mapy</section>
+                <section class="odnosnik">Wiadomości</section>
+                <section class="odnosnik">Wideo</section>
+                <section class="odnosnik">Więcej</section>
+                <section class="odnosnik">Ustawienia</section>
+                <section class="odnosnik">Narzędzia</section>
+
+            </div>
+        </header>
+
+        <main>
+
+            <div class="m-flex_container">
+                
+                <div class="liczba_wynikow">Około 665 000 000 wyników (0,65 s)</div>
+                <section class="m-flex_element"><a id="google_link"><img class="googleLogo" src="Obrazki/logo_google.png" /></a></section>
+                <form class="szukanie">
+                    <section class="m-flex_element pasek-flex glowne" >
+                        <div class="modul">
+                            <img class="ikona_input" src="Obrazki/lupa.svg" />
+                            <input class="input_wyszukiwanie" maxlength="2048" v-model="googleSearch" @focus="skupienie = true" @keyup.enter="enter()" @keyup.down="dol()" @keyup.up="gora()"/>
+                            <img class="ikona_input-clear" src="Obrazki/clear.svg"/>
+                            <img class="ikona_input-keyboard" src="Obrazki/klawiatura.svg"/>
+                            <img class="ikona_input-mikrofon" src="Obrazki/mikrofon.png"/>
+                        </div>
+                        <div  id="listaMiast" class="nazwy_miast" :class="{widok : googleSearch.length > 0 /*&& skupienie*/ && filtrowaneMiasta.length>0}" >
+                            <ul >
+                                <li  v-for="(miasto,index) in filtrowaneMiasta" >
+                                    <div class="lista_elementow" :class="{klasa_skupienie:index == zaznaczenie}">
+                                        <img class="ikona_input" src="Obrazki/lupa.svg" />
+                                        <a href="#" v-html="wytluszcz(miasto)" v-on:click="wybrane(index)"><b>{{ miasto }}</b></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                    
+
+                </form>
+                <div class="m-flex_element przyciski" :class="{ukryte : googleSearch.length > 0 && skupienie && filtrowaneMiasta.length>0}">
+                    <input class="przycisk jeden" type="submit" value="Szukaj w Google" />
+                    <input class="przycisk" type="submit" value="Szczęśliwy traf" />
+                </div>
+            </div>
+            <div class="lista">
+                <div class="wyszukiwanie">
+                    <div class="wynik">
+                        <a class="hiperlacze">
+                            <div>
+                                <span class="sciezka"><span class="ciemny">https://developer.mozilla.org › docs › What_is_JavaScript</span>
+                                <br />
+                                <h1 class="strona">Co to jest JavaScript? - Naucz się pisać strony internetowe ...</h1>
+                            </div>
+                        </a>
+                        <div class="opis">
+                            <span><p>Podstawowa znajomość komputera, podstawowa znajomość HTML i CSS. Cel: Zapoznanie z istotą JavaScript, co on robi i jak jest ...</p></span>
+                        </div>
+                    </div>
+                    <div class="wynik">
+                        <a class="hiperlacze">
+                            <div>
+                                <span class="sciezka"><span class="ciemny">https://developer.mozilla.org › Learn › JavaScript_basics</span>
+                                <br />
+                                <h1 class="strona">Podstawy JavaScript - Naucz się pisać strony internetowe ...</h1>
+                            </div>
+                        </a>
+                        <div class="opis">
+                            <span>js : var myHeading = document.querySelector('h1'); myHeading.textContent = 'Hello world!'; Na koniec upewnij się, że pliki HTML i JavaScript ...</span>
+                        </div>
+                    </div>
+                    <div class="wynik">
+                        <a class="hiperlacze">
+                            <div>
+                                <span class="sciezka"><span class="ciemny">https://pl.wikipedia.org › wiki › JavaScript</span>
+                                <br />
+                                <h1 class="strona">JavaScript – Wikipedia, wolna encyklopedia</h1>
+                            </div>
+                        </a>
+                        <div class="opis">
+                            <span>JavaScript, w skrócie JS – skryptowy język programowania, stworzony przez firmę Netscape, najczęściej stosowany na stronach internetowych. Twórcą ...</span>
+                        </div>
+                    </div>
+                    <div class="wynik">
+                        <a class="hiperlacze">
+                            <div>
+                                <span class="sciezka"><span class="ciemny">https://www.w3schools.com › DEF...</span>
+                                <br />
+                                <h1 class="strona">JavaScript Tutorial - W3Schools</h1>
+                            </div>
+                        </a>
+                        <div class="opis">
+                            <span>... and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, PHP, Python, Bootstrap, Java and XML.</span>
+                        </div>
+                    </div>
+                    <div class="wynik">
+                        <a class="hiperlacze">
+                            <div>
+                                <span class="sciezka"><span class="ciemny">https://vavatech.pl › technologie › jezyki-programowania</span>
+                                <br />
+                                <h1 class="strona">Język programowania – JavaScript - Vavatech.pl - Strefa wiedzy</h1>
+                            </div>
+                        </a>
+                        <div class="opis">
+                            <span>JavaScript jest to skryptowy język programowania wysokiego poziomu. Razem z HTML i CSS JavaScript stanowi podstawowe narzędzie do tworzenia stron ...</span>
+                        </div>
+                    </div>
+                    <div class="wynik">
+                        <a class="hiperlacze">
+                            <div>
+                                <span class="sciezka"><span class="ciemny">https://kodilla.com › kurs-javascript</span>
+                                <br />
+                                <h1 class="strona">Kurs JavaScript - online, od podstaw, programowania, nauka ...</h1>
+                            </div>
+                        </a>
+                        <div class="opis">
+                            <span>Kurs JavaScript w Kodilli jest elementem realizowanych przez internet bootcampów Web Developer Plus oraz Front-end: React. W tym pierwszym, trwającym 9 ...</span>
+                        </div>
+                    </div>
+                    <div class="wynik">
+                        <a class="hiperlacze">
+                            <div>
+                                <span class="sciezka"><span class="ciemny">https://www.hackreactor.com › blog</span>
+                                <br />
+                                <h1 class="strona">What is JavaScript Used For? | Hack Reactor</h1>
+                            </div>
+                        </a>
+                        <div class="opis">
+                            <span>What is JavaScript? JavaScript is a text-based programming language used both on the client-side and server-side that allows you to make web ...</span>
+                        </div>
+                    </div>
+                    <div class="wynik">
+                        <a class="hiperlacze">
+                            <div>
+                                <span class="sciezka"><span class="ciemny">https://www.tutorialspoint.com › jav...</span>
+                                <br />
+                                <h1 class="strona">Javascript Tutorial - Tutorialspoint</h1>
+                            </div>
+                        </a>
+                        <div class="opis">
+                            <span>What is JavaScript? JavaScript is a text-based programming language used both on the client-side and server-side that allows you to make web ...</span>
+                        </div>
+                    </div>
+                    <div class="wynik">
+                        <a class="hiperlacze">
+                            <div>
+                                <span class="sciezka"><span class="ciemny">https://www.enable-javascript.com</span>
+                                <br />
+                                <h1 class="strona">How to enable JavaScript in your browser and why</h1>
+                            </div>
+                        </a>
+                        <div class="opis">
+                            <span>Instructions on how to enable (activate) JavaScript in web browser and why.</span>
+                        </div>
+                    </div>
+                    <div class="wynik">
+                        <a class="hiperlacze">
+                            <div>
+                                <span class="sciezka"><span class="ciemny">https://reactjs.org</span>
+                                <br />
+                                <h1 class="strona">React – A JavaScript library for building user interfaces</h1>
+                            </div>
+                        </a>
+                        <div class="opis">
+                            <span>Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM. Learn Once, ...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="podobne">
+                    <h3>Podobne wyszukiwania</h3>
+                    
+                    <div class="podobne_container">
+                        <div class="srodek_container">
+                            <a href="#">
+                                <img class="ikona_input lupa" src="Obrazki/lupa.svg" />
+                                <b>JavaScript podstawy tutorial</b>
+                            </a>
+                            <a href="#">
+                                <img class="ikona_input lupa" src="Obrazki/lupa.svg" />
+                                <b>JavaScript recenzja dokładna</b>
+                            </a>
+                            <a href="#">
+                                <img class="ikona_input lupa" src="Obrazki/lupa.svg" />
+                                <b>JavaScript podstawy tutorial</b>
+                            </a>
+                            <a href="#">
+                                <img class="ikona_input lupa" src="Obrazki/lupa.svg" />
+                                <b>JavaScript recenzja dokładna</b>
+                            </a>
+                        </div>
+
+                        <div class="srodek_container">
+                            <a href="#">
+                                <img class="ikona_input lupa" src="Obrazki/lupa.svg" />
+                                <b>JavaScript podstawy tutorial</b>
+                            </a>
+                            <a href="#">
+                                <img class="ikona_input lupa" src="Obrazki/lupa.svg" />
+                                <b>JavaScript recenzja dokładna</b>
+                            </a>
+                            <a href="#">
+                                <img class="ikona_input lupa" src="Obrazki/lupa.svg" />
+                                <b>JavaScript podstawy tutorial</b>
+                            </a>
+                            <a href="#">
+                                <img class="ikona_input lupa" src="Obrazki/lupa.svg" />
+                                <b>JavaScript recenzja dokładna</b>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="srodek_container">
+                        <table class="tablica_google">
+                            <tr>
+                                <td>
+                                    <div class="srodek_container">
+                                        <div class="litera niebieski">G</div>
+                                        <div class="number"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a class="obecna" href="#">
+                                        <div class="srodek_container">
+                                            <div class="litera czerwony">o</div>
+                                            <div class="cyfra obecna">1</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="srodek_container">
+                                            <div class="litera zolty">o</div>
+                                            <div class="cyfra">2</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="srodek_container">
+                                            <div class="litera zolty">o</div>
+                                            <div class="cyfra">3</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="srodek_container">
+                                            <div class="litera zolty">o</div>
+                                            <div class="cyfra">4</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="srodek_container">
+                                            <div class="litera zolty">o</div>
+                                            <div class="cyfra">5</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="srodek_container">
+                                            <div class="litera zolty">o</div>
+                                            <div class="cyfra">6</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="srodek_container">
+                                            <div class="litera zolty">o</div>
+                                            <div class="cyfra">7</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="srodek_container">
+                                            <div class="litera zolty">o</div>
+                                            <div class="cyfra">8</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="srodek_container">
+                                            <div class="litera zolty">o</div>
+                                            <div class="cyfra">9</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="srodek_container">
+                                            <div class="litera zolty">o</div>
+                                            <div class="cyfra">10</div>
+                                        </div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <div class="srodek_container">
+                                        <div class="litera niebieski">g</div>
+                                        <div class="cyfra"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="srodek_container">
+                                        <div class="litera zielony">l</div>
+                                        <div class="cyfra"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="srodek_container">
+                                        <div class="litera czerwony">e</div>
+                                        <div class="cyfra"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="#">
+                                        <div class="srodek_container">
+                                            <div class="litera niebieski strzalka">></div>
+                                            <div class="cyfra">Następna</div>
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+        </main>
+
+        <footer class="dol">
+            <div class="dolny_pasek">
+                <div class="panstwo">Polska<span class="lokacja"><span class="kropka"></span><b> 34-300, Żywiec</b> - Z Twojego adresu internetowego - <a href="#">Użyj dokładnej lokalizacji</a> - <a href="#">Dowiedz się więcej</a></span></div>
+            </div>
+
+            <div class="footer_container">
+                <section class="f_flex_element sekcja pierwsza">
+                    <a class="sekcja-item link odstep">O nas</a>
+                    <a class="sekcja-item link odstep">Reklamuj się</a>
+                    <a class="sekcja-item link odstep">Dla firm</a>
+                    <a class="sekcja-item link odstep">Jak działa wyszukiwania</a>
+                </section>
+                <section class="f_flex_element sekcja druga">
+                    <a class="sekcja-item link">Pomoc</a>
+                    <a class="sekcja-item link">Prywatność</a>
+                    <a class="sekcja-item link">Warunki</a>
+                    </div>
+                </section>
+            </div>
+        </footer>
+    </div>
+</body>
+
+<script>
+    var app = new Vue(
+        {
+        el: '#start',
+        data: {
+            googleSearch: '',
+            searchedInput:'',
+            filtrowaneMiasta:"",
+            cities: window.cities,
+            filtrowane_miasta_aktualizacja:true,
+            skupienie: false,
+            zmiana: false,
+            zaznaczenie: -1,
+        },
+        updated()
+         {
+            this.$nextTick(() => 
+            {
+                if (this.zmiana)
+                {
+                    this.$refs.top.focus();
+                }
+                else
+                {
+                    this.$refs.bottom.focus();
+                }
+            });
+        },
+        watch: 
+        {
+            zaznaczenie: function () 
+            {
+            this.filtrowane_miasta_aktualizacja=false;
+            this.googleSearch=this.filtrowaneMiasta[this.zaznaczenie].name;
+            },
+            googleSearch: function()
+            {
+                this.filtrowane_miasta_utworz(this.filtrowane_miasta_aktualizacja);
+                this.filtrowane_miasta_aktualizacja=true;
+                console.log(this.filtrowaneMiasta);
+                if(this.zaznaczenie==-1)
+                {
+                    this.searchedInput=this.googleSearch;      
+                }
+            }
+        },
+        methods:
+        {
+            enter() 
+            {
+                this.filtrowaneMiasta=true;
+                this.zmiana= true;
+                this.zaznaczenie=-1;
+                this.skupienie = false;
+             },
+            dol()
+            {
+                if(this.zaznaczenie<this.filtrowaneMiasta.length-1)
+                {
+                    this.zaznaczenie+=1; 
+                }
+                else if(this.zaznaczenie==this.filtrowaneMiasta.length-1)
+                {
+                    this.zaznaczenie=0; 
+                }
+             },
+             gora()
+             {
+                if(this.zaznaczenie>0)
+                {
+                    this.zaznaczenie-=1; 
+                }
+                else if(this.zaznaczenie==0)
+                {
+                    this.zaznaczenie=this.filtrowaneMiasta.length-1;
+                }
+             },
+             wybrane(i)
+             {
+                this.googleSearch=this.filtrowaneMiasta[i].name;
+                this.enter();
+             },
+             aktywne()
+             {
+                if(this.googleSearch.length==0){
+                    this.zmiana=false;
+                }
+                return this.zmiana;
+             },
+             filtrowane_miasta_utworz(prawda)
+             {
+                 if(prawda)
+                 {
+                    let result=this.cities.filter(miasto => miasto.name.includes(this.googleSearch));
+                    if(result.length>10)
+                    {
+                        this.filtrowaneMiasta= result.slice(1, 11);
+                    }
+                    else{
+                        this.filtrowaneMiasta= result;
+                    }
+                    this.zaznaczenie=-1;
+                 }   
+             },
+             wytluszcz(miasto)
+            {
+                let re = new RegExp(this.searchedInput,"gi");
+                let bolden="<b>"+miasto.name.replace(re, match=>
+                    {
+                     return "<span class='zwykly'>"+ match+"</span>";
+                    })+"</b>";
+                console.log(bolden);
+                return bolden;
+            }      
+        }
+    })
+</script>
+</html>
