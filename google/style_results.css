@@ -1,0 +1,509 @@
+.results .pasek-flex-results,
+.results .additional,
+.results .gorny_pasek,
+.results .nawigacja,
+.results .liczba_wynikow,
+.results .lokacja,
+.results .lista,
+.results  img.googleLogo,
+.results #google_link{
+    display:initial;
+}
+body .results{
+    font-size: 14px;
+    min-width: 500px;
+    margin:0;
+    min-height: 100vh;
+    background-color:#fff;
+    font-family: arial, sans-serif;
+    display: grid;
+    align-content: space-between;
+    grid-template-areas:
+    "top"
+    "main"
+    "footer";
+    color: #202124;
+    font-size: 14px;
+    grid-template-rows: auto 1fr auto;
+}
+.results table.googlelist {
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: -0.12em;
+    font-size: 2.3em;
+    margin-bottom: 50px;
+    font-weight: bold;
+    margin-left: 370px;
+}
+
+.results .numer {
+    font-size: 12px;
+    color: rgb(50, 93, 246);
+    letter-spacing: normal;
+    text-align: center;
+    cursor: pointer;
+}
+.results .arrow {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: -50px;
+    cursor: pointer;
+}
+.results .page_nr:hover{
+    text-decoration: underline;
+}
+.results .blue {
+    color: #518dee;
+}
+.results .red {
+    color: rgb(241, 46, 46);
+}
+.results .green {
+    color: rgb(49, 177, 37);
+}
+
+.results .yellow {
+    color: rgb(247, 200, 59);
+}
+.results .pages .page_nr {
+    font-size: 14px;
+    font-weight: normal;
+}
+.results .help h3 {
+    font-weight: normal;
+    font-size: 19px;
+    margin-top: 12px;
+    margin-bottom: 22px;
+    margin-left: 8px;
+    display: inline-block;
+    margin-left: 180px;    
+}
+.results #helpbar1 {
+    margin-top: 10px;
+    width: 300px;
+    height: 45px;
+    border-radius: 100px;
+    color: #202124;
+    font-weight: bold;
+    background-color: #f1f3f4;
+    font-size: 16px;
+    position: relative;
+    bottom: 5px;
+    display: flex;
+    margin-left: 0px;
+    align-items: center;
+    margin-left: 180px;
+}
+.results #helpbar2 {
+    margin-top: 10px;
+    width: 300px;
+    height: 45px;
+    border-radius: 100px;
+    color: #202124;
+    font-weight: bold;
+    background-color: #f1f3f4;
+    font-size: 16px;
+    position: relative;
+    bottom: 5px;
+    display: flex;
+    margin-left: 0px;
+    align-items: center;
+    margin-left: 180px;
+}
+.results #helpbar3 {
+    margin-top: 10px;
+    width: 300px;
+    height: 45px;
+    border-radius: 100px;
+    color: #202124;
+    font-weight: bold;
+    background-color: #f1f3f4;
+    font-size: 16px;
+    position: relative;
+    bottom: 5px;
+    display: flex;
+    margin-left: 0px;
+    align-items: center;
+    margin-left: 180px;
+}
+.results #helpbar4 {
+    margin-top: 10px;
+    width: 300px;
+    height: 45px;
+    border-radius: 100px;
+    color: #202124;
+    font-weight: bold;
+    background-color: #f1f3f4;
+    font-size: 16px;
+    position: relative;
+    bottom: 5px;
+    display: flex;
+    margin-left: 0px;
+    align-items: center;
+    margin-left: 180px;
+}
+.results #helpbar5 {
+    margin-top: 10px;
+    width: 300px;
+    width: 300px;
+    height: 45px;
+    border-radius: 100px;
+    color: #202124;
+    font-weight: bold;
+    background-color: #f1f3f4;
+    border-width: 1px;
+    font-size: 16px;
+    position: relative;
+    bottom: 5px;
+    display: flex;
+    margin-left: 15px;
+    align-items: center;
+}
+.results #helpbar6 {
+    margin-top: 10px;
+    width: 300px;
+    height: 45px;
+    border-radius: 100px;
+    color: #202124;
+    font-weight: bold;
+    background-color: #f1f3f4;
+    font-size: 16px;
+    position: relative;
+    bottom: 5px;
+    display: flex;
+    margin-left: 15px;
+    align-items: center;
+}
+.results #helpbar7 {
+    margin-top: 10px;
+    width: 300px;
+    height: 45px;
+    border-radius: 100px;
+    color: #202124;
+    font-weight: bold;
+    background-color: #f1f3f4;
+    font-size: 16px;
+    position: relative;
+    bottom: 5px;
+    display: flex;
+    margin-left: 15px;
+    align-items: center;
+}
+.results #helpbar8 {
+    margin-top: 10px;
+    width: 300px;
+    height: 45px;
+    border-radius: 100px;
+    color: #202124;
+    font-weight: bold;
+    background-color: #f1f3f4;
+    font-size: 16px;
+    position: relative;
+    bottom: 5px;
+    display: flex;
+    margin-left: 15px;
+    align-items: center;
+}
+.results .lupka{
+    width: 25px;
+    margin-right: 22px;
+    margin-left: 22px;
+    font-weight: 500px;
+}
+
+.results .helplists ul {
+    list-style: none;
+    color: #1a0dab;
+    padding-left: 0px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    margin-left: 3px;
+    cursor: pointer;
+}
+.results .helplists {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 300px;
+    margin-left: 3px;
+}
+.results .results .helplists ul li {
+    margin-bottom: 8px;
+    margin-left: 3px;
+}
+.results .result {
+    margin: 0px 0 0px 5px;
+}
+.results .searchnumber {
+    margin-top: 15px;
+    color: rgb(110, 110, 110);
+    margin-left: 10px;
+}
+.results .result p {
+    margin: 5px 0 25px 0;
+    color: #545454;
+    line-height: 1.5em;
+    font-size: 14px;
+}
+.results .result h2 {
+    margin: 0px 0 0px 0;
+    color: #1a0dab;
+    line-height: 1.5em;
+    font-size: 20px;
+    font-weight: 120;
+}
+.results .result .link {
+    margin: 0px -10px 0px 0;
+    color: #545454;
+    line-height: 1em;
+    font-size: 13px;
+}
+.results .result button {
+    font-size: 10px;
+    line-height: 20px;
+    color: rgb(71, 71, 71);
+    padding-left: 5px;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+.results  img.googleLogo{
+    margin-top: 0px;
+    display: initial;
+    height: 28px;
+    width: 86px;
+    cursor: pointer;
+}
+.results #google_link{
+    position: absolute;
+    left: 0px;
+    padding: 4px 28px 0 30px;
+    top: -100px;
+    height: 28px;
+    width: 86px;
+    cursor: pointer;
+}
+.results .h-flex_container{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 6px;
+}
+.results .aplikacja{
+    align-items: center;
+}
+.results span.kreska{
+    border-right: 1px solid #dfe1e5;
+    display: inline-block;
+    height: 34px;
+}
+.results #przycisk_szukaj{
+    display: flex;
+    padding-right: 20px;
+    height: 44px;
+    width: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.results .nawigacja{
+    margin-left: 169px;
+}
+.results .gorny_pasek{
+    position: sticky;
+    top:0;
+    margin-bottom:22px;
+    margin-top:10px;
+    margin-left: 133px;
+    width: 692px;
+    height:44px;
+    margin-right: 40px;
+    padding-top:0px;
+    padding-bottom:0px;
+}
+.results .odnosnik{
+    display: initial;
+    text-decoration: none;
+    color: #70757a;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: arial,sans-serif;
+    white-space: nowrap;
+    height: 16px;
+    line-height: 16px;
+    margin: 11px 1px 0;
+    padding: 16px 12px 12px 10px;
+}
+.results .odnosnik.wszystko{
+        border-bottom: 3px solid #1a73e8;
+        color: #1a73e8;
+}
+.results header{
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom:15px;
+    min-width: 1261px;
+    z-index: 1;
+}
+.results .liczba_wynikow{
+    font-size: 14px;
+    color: #70757a;
+    line-height: 25px;
+    white-space: nowrap;
+    font-family: Google Sans,arial,sans-serif;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 8px;
+    min-width: 652px;
+    margin-left: 180px;
+    align-self: flex-start;
+}
+.results .lista{
+    clear: both;
+    position: relative;
+    margin-right: 264px;
+    margin-left: 180px;
+    width: 652px;
+}
+.results .wyszukiwanie{
+    margin-left: 180px;
+    max-width: 48em;
+}
+.results footer{
+    position: relative;
+    width:100%;
+    min-width: 1261px;
+    margin: 0px;
+}
+.results div.bottom{
+    border-bottom: 1px solid #dadce0;
+    border-top: 1px solid #dadce0;
+}
+.results .kropka{
+    background: #70757a;
+    border-radius: 100%;
+    display: inline-block;
+    height: 10px;
+    margin: 6px 4px 9px 0;
+    vertical-align: middle;
+    width: 10px;
+}
+.results .lokacja{
+    margin-left: 13px;
+    padding-left: 16px;
+    border-left: 1px solid #dadce0;
+    line-height: 15px;
+    color: #70757a;
+    font-size: 14px;
+}
+.results .dolny_pasek{
+    white-space: nowrap;
+    padding:0px;
+    line-height: 40px;
+}
+.results .lokacja a{
+    text-decoration: none;
+    color: #70757a;
+}
+.results .lokacja b{
+    color: #3c4043;
+}
+.results .panstwo{
+    margin-left: 195px;
+}
+.results .druga{
+    padding:0;
+    line-height: 40px;
+    margin-left: 153px;
+    padding-left:0px;
+    white-space: nowrap;
+    font-size: 14px;
+    justify-content: flex-start;
+}
+.results .link{
+    padding-left: 27px;
+}
+.results .glowne{
+    display: none;
+}
+.results .pierwsza{
+    display: none;
+}
+.results .leafy{
+    display: none;
+}
+.results .menu{
+    display: none;
+}
+.results .przyciski{
+    display: none;
+}
+.results header .linki{
+    display:none;
+}
+.results #listaMiast{
+    display: none;
+}
+.results .widok {
+    display: block;
+}
+
+.results .infopasek {
+    position: absolute;
+    background: #f2f2f2;
+    width: 100%;
+    padding: 10px;
+    border-top: 1px solid rgb(209, 209, 209);
+    font-size: 14px;
+}
+
+.results .infopasek p a.panstwo {
+    margin-right: 24px;
+}
+
+.results .infopasek p a.inne {
+    cursor: pointer;
+}
+
+.results .infopasek p a.inne:hover {
+    color:rgb(73, 73, 73);
+}
+
+
+.results .infopasek p, .infopasek ul {
+    margin-left: 162px;
+}
+
+.results .infopasek p a strong {
+    color: black;
+}
+
+.results .infopasek p {
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+.results .infopasek ul {
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.results .infopasek p a {
+    color: rgb(114, 114, 114);
+}
+
+.results .locationpasek {
+    border-bottom: 1px solid rgb(190, 190, 190);
+}
+
+.results .infopasek li a {
+    margin-right: 20px;
+    color: rgb(114, 114, 114);
+}
+
+.results .infopasek li a:hover {
+    color:rgb(73, 73, 73);
+}
